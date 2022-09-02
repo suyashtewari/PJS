@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="gaming.css">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    </head>
+    
+    <body>
+                <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+              <div class="modal-content" id="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h3 id="header-text">Correct!</h3>
+                </div>
+                <div class="modal-body">
+                    <span style="font-size: 100px; color: white;" id="modal-image">&#10003;</span>
+                    <h4 id="personEliminated">You have just eliminated ...</h4>
+                </div>
+              </div>
+
+        </div>
+
+        <div class="top-screen-container">
+            <div class="slide-menu-button" onclick="onClickMenu(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <header>
+                <div class="identity-container">
+                    <h2 id="personal-id">
+                        Your Identity: 
+                    </h2>
+                </div>
+    
+            </header>
+    
+            <section class="guess-container">
+                <div class="padding-container">
+                    <div class="card-container" id="card-container">
+                        <div>
+                            <h2 id="guess-person">
+                            You are guessing -person-'s identity.
+                            </h2>
+                        </div>
+    
+                        <div class="input-container" id="input-container">
+                            <label for="identity">Guess: </label>
+                            <input type="text" id="guessIdentity" placeholder="Who is this person's identity?">
+                        </div>
+    
+                        <button class="submit" id="guessButton">Submit</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="choice-container">
+                <div class="button-container">
+                    <button class="choice-button" id="player1">
+                        player1
+                    </button>
+                </div>
+
+                <div class="button-container">
+                    <button class="choice-button" id="player2">
+                        player2
+                    </button>
+                </div>
+
+                <div class="button-container">
+                    <button class="choice-button" id="player3">
+                        player3
+                    </button>
+                </div>
+
+                <div class="button-container">
+                    <button class="choice-button" id="player4">
+                        player4
+                    </button>
+                </div>
+
+                <div class="button-container">
+                    <button class="choice-button" id="player5">
+                        player5
+                    </button>
+                </div>
+
+                <div class="button-container">
+                    <button class="choice-button" id="player6">
+                        player6
+                    </button>
+                </div>
+
+                <div class="button-container">
+                    <button class="choice-button" id="player7">
+                        player7
+                    </button>
+                </div>
+
+            </section>
+
+            <div class="overlap-container" id="list">
+                
+                <div class="menu-container" id="menuContainer">
+
+                    <div class="top-container">
+                        <h1>Instructions:</h1>
+                    </div>
+
+                    <ul>
+                        <li>To start off, a randomly selected person asks a YES/NO question to another member in the party about his/her identity.</li>
+                        <li>The member asked answers the question and proceeds to ask a question themselves to any member in the party. This chain of
+                        questioning sets the stage for the game.</li>
+                        <li>Whenever any player wants, they can guess another player's identity in the PJs interface using clues from the Y/N questions.</li>
+                        <li>A pop-up will show saying if you guessed correctly or not. If you guessed someone's identity correctly, they will be eliminated from the game.</li>
+                        <li>No one else will know the results of your guess (or the fact that someone guessed in the first place).</li>
+                        <li>All players can ask questions throughout the entirety of the game (even if their identity has already been guessed).</li>
+                        <li>The objective of the game is to be the last member of the party whose identity has not been discovered.</li>
+                        <li>Tip: keep track of who you think has been eliminated and who you think still needs to be discovered!</li>
+                    </ul>
+
+                    <div class="exit-button-container">
+                        <button id="back">&laquo Exit Game</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyAXhGIqsL1T_9E74L7ag9Vz_EYbsZLwzJY",
+            authDomain: "pathetic-jumping-squirrels.firebaseapp.com",
+            databaseURL: "https://pathetic-jumping-squirrels.firebaseio.com",
+            projectId: "pathetic-jumping-squirrels",
+            storageBucket: "pathetic-jumping-squirrels.appspot.com",
+            messagingSenderId: "174322969428",
+            appId: "1:174322969428:web:8a4c32542cf9c79a3976c1",
+            measurementId: "G-C1X5LGX5SQ"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+
+          var count = 0;
+            function onClickMenu(x) {
+                x.classList.toggle("change");
+                if(count%2 == 0){
+                    document.getElementById("list").style.opacity = "1"
+                    document.getElementById("menuContainer").style.flexBasis = "25%"
+                    document.getElementById("list").style.zIndex = "2"
+                    count++
+                }
+                else if(count%2 == 1){
+                    document.getElementById("list").style.opacity = "0"
+                    document.getElementById("menuContainer").style.flexBasis = "0%"
+                    document.getElementById("list").style.zIndex = "-1"
+                    count++
+                }
+            }
+
+        
+
+            
+        </script>
+
+        <script src="gaming.js"></script>
+
+        <script>
+            // window.addEventListener('beforeunload', function(e){
+            //     // console.log('closing shared worker port...');
+
+            //     console.log("used addeventlistener")
+
+            //     // .then(function(){
+            //     //     // db.collection("rooms").doc(roomId).delete().then(function(){
+            //     //     //     window.location.href = "index.html"
+            //     //     // })
+            //     // })
+
+            //     // db.collection("rooms").doc(roomId).set({
+            //     //     numPlayersRemaining: roomDocument.data().numPlayersRemaining - 1
+
+                    
+
+            //     // }, {merge: true})
+
+            //     e.preventDefault();
+
+            //     e.returnValue = ""
+
+            //     return "dingaladong dong dingaladong dong"
+
+            // })
+
+            // window.addEventListener('unload', function(e){
+            //     // console.log('closing shared worker port...');
+
+            //     console.log("used things idk  lulw")
+                
+            //     db.collection("rooms").doc(roomId).collection("players").doc(displayName).delete();
+
+            // })
+        </script>
+    </body>
+</html>

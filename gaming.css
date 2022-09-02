@@ -1,0 +1,386 @@
+body,html{
+    padding: 0%;
+    margin: 0%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header{
+    display: flex;
+    background-color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    align-items: center;
+    padding: 1% 2% 1% 2%;
+}
+
+.identity-container{
+    flex: 1;
+    text-align: start;
+}
+
+.guess-container{
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    background-image: url("images/lowpoly.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-container{
+    margin: auto;
+    background-color: white;
+    padding: 3%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.padding-container{
+    display: flex;
+    padding: 3%;
+    width: 100%;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    visibility: hidden
+}
+
+.input-container input{
+    margin-top: 4%;
+    padding: 10px;
+}
+
+.submit{
+    margin-top: 3%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: turquoise;
+    padding: 10px 20px 10px 20px;
+    visibility: hidden;
+}
+
+.submit:hover{
+    background-color: teal;
+    color: white;
+}
+
+.choice-container{
+    height: 250px;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-container{
+    flex: 1;
+    padding: 1.5%;
+    display: none;
+
+}
+
+.choice-button{
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    transition-duration: 0.3s;
+}
+
+.choice-button:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.choice-button:focus{
+    color: white;
+}
+
+#player1{
+    background-color: lightblue;
+}
+
+#player1:hover{
+    background-color: rgb(49, 49, 177);
+}
+
+#player1:focus{
+    background-color: rgb(49, 49, 177);
+}
+
+#player2{
+    background-color: lightsalmon;
+}
+
+#player2:hover{
+    background-color: rgb(196, 51, 51);
+}
+
+#player2:focus{
+    background-color: rgb(196, 51, 51);
+}
+
+#player3{
+    background-color: lightgreen;
+}
+
+#player3:hover{
+    background-color: rgb(34, 163, 34);
+}
+
+#player3:focus{
+    background-color: rgb(34, 163, 34);
+}
+
+#player4{
+    background-color: rgb(230, 191, 93);
+}
+
+#player4:hover{
+    background-color: goldenrod;
+}
+
+#player4:focus{
+    background-color: goldenrod;
+}
+
+#player5{
+    background-color: rgb(238, 121, 238);
+}
+
+#player5:hover{
+    background-color: purple;
+}
+
+#player5:focus{
+    background-color: purple;
+}
+
+#player6{
+    background-color: rgb(160, 112, 112);
+}
+
+#player6:hover{
+    background-color: brown;
+}
+
+#player6:focus{
+    background-color: brown;
+}
+
+#player7{
+    background-color: gray;
+}
+
+#player7:hover{
+    background-color: black;
+}
+
+#player7:focus{
+    background-color: black;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color:#00ff00;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition-duration: 0.3s
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: transparent;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 16px;
+    background-color: transparent;
+    color: white;
+    
+}
+
+.modal-body h4{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media only screen and (mid-width:786px){
+
+    .choice-container{
+        flex-wrap: nowrap;
+    }
+}
+
+.overlap-container{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-color: #00000088;
+    transition-duration: 0.3s;
+    opacity: 0;
+
+}
+
+.menu-container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0%;
+    padding: 3%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition-duration: 0.3s;
+    opacity: 1;
+    overflow: scroll;
+}
+
+.menu-container table{
+    padding-top: 3%;
+    width: 40%;
+}
+
+.menu-container table th{
+    text-align: start;
+    padding-bottom: 5%;
+}
+
+.menu-container table td{
+    padding: 5%;
+    border-bottom: 2px solid gray;
+}
+
+.top-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-screen-container{
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 3%;
+    justify-content: flex-end;
+    z-index: 3;
+}
+
+.slide-menu-button {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+  
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+  
+.change .bar2 {opacity: 0;}
+  
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+li {
+  padding: 2%;
+}
+
+.exit-button-container{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#back{
+    background-color: red;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 3%;
+    border-radius: 10%;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+#back:hover{
+    background-color: #c21a1a;
+}

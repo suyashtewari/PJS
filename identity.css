@@ -1,0 +1,94 @@
+body, html{
+    padding: 0%;
+    margin: 0%;
+    height: 100%;
+    overflow:hidden;
+}
+
+.transition-background{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    animation-name: background-transition;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container h2{
+    color: white
+}
+
+
+@keyframes background-transition{
+    0% {background-color: lightblue;}
+    50% {background-color: pink;}
+    100% {background-color: lightblue;}
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+    }
+
+.container h1{
+    color: white;
+}
+
+.container input{
+    padding: 3%;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    outline: none;
+}
+
+.container button{
+    background-color: white;
+    padding: 5% 10% 5% 10%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    border: none;
+    outline: none;
+    margin-top: 5%;
+    transition-duration: 0.6s;
+    font-weight: bold;
+    width: 100px;
+}
+
+.container button:hover{
+    color: #008be7;
+    cursor: pointer;
+}
+
+#myInput {
+    padding: 1%;
+    text-align: center;
+    font-size: 15px;
+}
+
+#copyLink{
+    padding: 3%;
+    background-color: white;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    transition-duration: 0.3s;
+}
+
+#copyLink:hover{
+    background-color: gray;
+    color:white
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="identity.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    </head>
+
+    <body>
+
+
+        <div class="transition-background">
+            <div class="container">
+                <h1>Your Identity:</h1>
+                <input type="text" id="identity" placeholder="Identity">
+                <input type="text" id="alias" placeholder="Aliases">
+                <button class="sumbit-button" id="submit">Submit</button>
+            </div>
+
+            <div class="card-container">
+                <h2>Invite your friends!</h2>
+
+                    <input type="text" value="https://playpjs.com/" id="myInput" readonly>
+
+                    <button id="copyLink">Copy Link</button>
+                    
+            </div>
+        </div>
+
+
+        <!-- <div class="background">
+
+       
+
+            <section class="container">
+
+                <div class="ui-choices">
+
+                    <div class="title-text">
+                        <h1>Waiting Room</h1>
+                    </div>
+
+                    <div class="ui-views">
+                        <label for="identity">Identity</label>
+                        <input type="text" id="identity" placeholder="Identity">
+                    </div>
+                    
+                        <button id="continue">Continue</button>
+                        <button id="back">Leave Room</button>
+
+                        <div class="card-container">
+                            <h2>Invite your friends!</h2>
+
+                            <input type="text" value="https://playpjs.com" id="myInput" readonly>
+
+                            <button id="copyLink">Copy Link</button>
+                        </div>
+                    
+                </div>
+
+            </section>
+        </div> -->
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyAXhGIqsL1T_9E74L7ag9Vz_EYbsZLwzJY",
+            authDomain: "pathetic-jumping-squirrels.firebaseapp.com",
+            databaseURL: "https://pathetic-jumping-squirrels.firebaseio.com",
+            projectId: "pathetic-jumping-squirrels",
+            storageBucket: "pathetic-jumping-squirrels.appspot.com",
+            messagingSenderId: "174322969428",
+            appId: "1:174322969428:web:8a4c32542cf9c79a3976c1",
+            measurementId: "G-C1X5LGX5SQ"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+        </script>
+
+        <script src="identity.js"></script>
+    </body>
+</html>
